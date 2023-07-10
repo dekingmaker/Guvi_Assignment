@@ -1,0 +1,31 @@
+how to compare two json have the same properties without order?
+a. let obj1={name: "person 1",age:5};
+b. let obj2={age:5,name:"person 1"};
+
+->Convert the JSON strings or objects to JavaScript objects if they are not already in that format.
+->Retrieve the keys of both objects using Object.keys().
+
+function compareJSON(obj1, obj2) {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  // Check if the lengths of the key arrays are equal
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  // Iterate over one array of keys and check if each key exists in the other array
+  for (let key of keys1) {
+    if (!keys2.includes(key)) {
+      return false;
+    }
+  }
+
+  // All keys were found in both objects
+  return true;
+}
+
+->using compareJSON():
+
+let result = compareJSON(obj1, obj2);
+console.log(result); // Output: true
