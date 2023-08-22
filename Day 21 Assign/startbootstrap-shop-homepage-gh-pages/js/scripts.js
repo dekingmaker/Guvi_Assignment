@@ -45,7 +45,7 @@ removeFromCartButtons.forEach(button => {
     if(cartCount>=0){
        cartCount =cartCount-1;
     }
-
+      cartCountVal.textContent = cartCount;
     // Find the parent card element
     const card = button.closest('.card');
 
